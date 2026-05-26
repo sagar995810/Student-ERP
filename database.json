@@ -1,0 +1,224 @@
+{
+  "students": {
+    "alex.johnson@example.com": {
+      "auth": {
+        "password": "password123"
+      },
+      "data": {
+        "name": "Alex Johnson",
+        "rollNo": "210123456",
+        "course": "B.Tech Computer Science",
+        "semester": 4,
+        "email": "alex.johnson@example.com",
+        "phone": "+91 98765 43210",
+        "gpa": 8.2,
+        "nextClass": "Data Structures - 11:00 AM",
+        "pendingTasks": 2,
+        "notifications": 3,
+        "completion": {
+          "courses": 72,
+          "assignments": 85
+        },
+        "courses": [
+          {
+            "name": "Data Structures",
+            "code": "CS202"
+          },
+          {
+            "name": "Database Systems",
+            "code": "CS204"
+          },
+          {
+            "name": "Operating Systems",
+            "code": "CS206"
+          },
+          {
+            "name": "Software Engineering",
+            "code": "CS208"
+          },
+          {
+            "name": "Probability & Statistics",
+            "code": "MA210"
+          }
+        ],
+        "grades": [
+          {
+            "subject": "Data Structures",
+            "midterm": 82,
+            "final": 89
+          },
+          {
+            "subject": "Database Systems",
+            "midterm": 78,
+            "final": 85
+          },
+          {
+            "subject": "Operating Systems",
+            "midterm": 75,
+            "final": 80
+          },
+          {
+            "subject": "Software Engineering",
+            "midterm": 79,
+            "final": 86
+          }
+        ],
+        "assignments": [
+          {
+            "id": 1,
+            "title": "DS Homework - Trees",
+            "due": "2026-03-28",
+            "status": "Due"
+          },
+          {
+            "id": 2,
+            "title": "DB Project - ER Diagram",
+            "due": "2026-03-31",
+            "status": "In Progress"
+          },
+          {
+            "id": 3,
+            "title": "OS Lab - Deadlocks",
+            "due": "2026-04-02",
+            "status": "Pending"
+          }
+        ],
+        "announcements": [
+          {
+            "title": "Semester Break",
+            "desc": "Mid-term break from April 10 to 14",
+            "date": "2026-03-20"
+          },
+          {
+            "title": "New Lab Schedule",
+            "desc": "OS lab starts from Monday 9 AM",
+            "date": "2026-03-22"
+          },
+          {
+            "title": "Guest Lecture",
+            "desc": "“AI in Education” on Saturday 4 PM",
+            "date": "2026-03-24"
+          }
+        ],
+        "submissions": []
+      }
+    },
+    "jane.smith@example.com": {
+      "auth": {
+        "password": "password123"
+      },
+      "data": {
+        "name": "Jane Smith",
+        "rollNo": "210123789",
+        "course": "B.Tech AI & ML",
+        "semester": 4,
+        "email": "jane.smith@example.com",
+        "phone": "+91 91234 56789",
+        "gpa": 9.1,
+        "nextClass": "Machine Learning - 10:00 AM",
+        "pendingTasks": 1,
+        "notifications": 5,
+        "completion": {
+          "courses": 80,
+          "assignments": 92
+        },
+        "courses": [
+          {
+            "name": "Machine Learning",
+            "code": "AI202"
+          },
+          {
+            "name": "Neural Networks",
+            "code": "AI204"
+          },
+          {
+            "name": "Python for AI",
+            "code": "AI206"
+          }
+        ],
+        "grades": [
+          {
+            "subject": "Machine Learning",
+            "midterm": 92,
+            "final": 95
+          },
+          {
+            "subject": "Python for AI",
+            "midterm": 88,
+            "final": 90
+          }
+        ],
+        "assignments": [
+          {
+            "id": 4,
+            "title": "ML Project - Regression",
+            "due": "2026-04-05",
+            "status": "In Progress"
+          }
+        ],
+        "announcements": [
+          {
+            "title": "AI Workshop",
+            "desc": "Free workshop on OpenAI APIs next Friday",
+            "date": "2026-03-25"
+          }
+        ],
+        "submissions": []
+      }
+    },
+    "sagar@edu.com": {
+      "auth": {
+        "password": "@123456"
+      },
+      "data": {
+        "name": "Sagar",
+        "rollNo": "210123999",
+        "course": "B.Tech Information Technology",
+        "semester": 6,
+        "email": "sagar@edu.com",
+        "phone": "+91 99887 76655",
+        "gpa": 7.8,
+        "nextClass": "Cyber Security - 01:00 PM",
+        "pendingTasks": 4,
+        "notifications": 2,
+        "completion": {
+          "courses": 65,
+          "assignments": 70
+        },
+        "courses": [
+          {
+            "name": "Cyber Security",
+            "code": "IT302"
+          },
+          {
+            "name": "Web Dev 2.0",
+            "code": "IT304"
+          }
+        ],
+        "grades": [
+          {
+            "subject": "Web Dev 2.0",
+            "midterm": 80,
+            "final": 82
+          }
+        ],
+        "assignments": [
+          {
+            "id": 5,
+            "title": "Cyber Security - PenTesting",
+            "due": "2026-04-10",
+            "status": "Pending"
+          }
+        ],
+        "announcements": [
+          {
+            "title": "Hackathon 2026",
+            "desc": "Join the annual campus hackathon!",
+            "date": "2026-03-28"
+          }
+        ],
+        "submissions": []
+      }
+    }
+  }
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Portal Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="loginPage" class="login-page">
+    <div class="login-container">
+      <div class="login-left">
+        <div class="login-header">
+          <h1>Student Portal</h1>
+          <p>Access your academic dashboard</p>
+        </div>
+        <form id="loginForm" class="login-form">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input id="email" type="email" placeholder="Enter your email" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Enter your password" required minlength="6" />
+          </div>
+          <button id="loginButton" type="submit" class="login-btn">Login</button>
+        </form>
+        <div class="login-footer">
+          <p style="font-size: 0.75rem;">Hints:<br>alex.johnson@example.com / password123<br>jane.smith@example.com / password123<br>sagar@edu.com / @123456</p>
+        </div>
+      </div>
+      <div class="login-right">
+        <div class="feature-item">
+          <div class="feature-icon">📊</div>
+          <h3>View Grades</h3>
+          <p>Track your academic performance</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📚</div>
+          <h3>Courses</h3>
+          <p>Manage enrolled courses</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📝</div>
+          <h3>Assignments</h3>
+          <p>Submit and track assignments</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔔</div>
+          <h3>Announcements</h3>
+          <p>Stay updated with latest news</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="portal-shell hidden" id="portalRoot">
+    <div id="sidebarOverlay" class="sidebar-overlay hidden"></div>
+    <aside class="portal-sidebar" id="sidebar">
+      <div class="brand">Student ERP</div>
+      <nav class="nav-list">
+        <button class="nav-item active" data-section="dashboard">Dashboard</button>
+        <button class="nav-item" data-section="courses">Courses</button>
+        <button class="nav-item" data-section="grades">Grades</button>
+        <button class="nav-item" data-section="assignments">Assignments</button>
+        <button class="nav-item" data-section="announcements">Announcements</button>
+        <button class="nav-item" data-section="profile">Profile</button>
+      </nav>
+    </aside>
+
+    <main class="portal-main" id="mainContainer">
+      <header class="portal-header">
+        <div class="header-left">
+          <button id="menuToggle" class="menu-toggle" aria-label="Open sidebar">☰</button>
+          <h1>Student Portal</h1>
+        </div>
+        <div class="header-actions">
+          <button id="refreshButton" class="action-btn">Refresh</button>
+          <button id="themeButton" class="action-btn secondary">Theme</button>
+          <button id="logoutButton" class="action-btn danger">Logout</button>
+        </div>
+      </header>
+
+      <section class="portal-content">
+        <!-- existing sections as previously defined -->
+        <div class="section" id="dashboard">
+          <div class="hero-image">
+            <img src="smiling-student.jpg" alt="Smiling student" />
+          </div>
+          <div class="section-header">
+            <h2>Welcome back, Student</h2>
+            <p id="greetingText">Have a productive day!</p>
+          </div>
+          <div class="cards-grid">
+            <article class="card">
+              <h3>Current GPA</h3>
+              <p class="large" id="gpa">8.2</p>
+            </article>
+            <article class="card">
+              <h3>Next Class</h3>
+              <p class="large" id="nextClass">Data Structures - 11:00 AM</p>
+            </article>
+            <article class="card">
+              <h3>Pending Tasks</h3>
+              <p class="large" id="pendingTasks">2</p>
+            </article>
+            <article class="card">
+              <h3>Notifications</h3>
+              <p class="large" id="notificationsCount">3</p>
+            </article>
+          </div>
+          <div class="section-header mt-1rem"><h2>Completion Tracker</h2></div>
+          <div class="progress-grid">
+            <div class="progress-card">
+              <p>Course Completion</p>
+              <div class="progress-wrapper"><div id="courseProgress" class="progress-fill"></div></div>
+              <span id="courseProgressText">0%</span>
+            </div>
+            <div class="progress-card">
+              <p>Assignment On Time</p>
+              <div class="progress-wrapper"><div id="assignmentProgress" class="progress-fill"></div></div>
+              <span id="assignmentProgressText">0%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section hidden" id="courses">
+          <div class="section-header">
+            <h2>Enrolled Courses</h2>
+            <input type="search" id="courseSearch" placeholder="Search courses..." aria-label="Search courses" />
+          </div>
+          <ul class="item-list" id="coursesList"></ul>
+        </div>
+
+        <div class="section hidden" id="grades">
+          <div class="section-header"><h2>Grades</h2></div>
+          <div class="table-responsive">
+            <table class="grade-table" id="gradesTable">
+              <thead><tr><th>Subject</th><th>Midterm</th><th>Final</th><th>Average</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section hidden" id="assignments">
+          <div class="section-header"><h2>Assignments</h2></div>
+          <div id="assignmentSubmissionArea" class="hidden">
+            <div class="card mb-1rem">
+              <h3>Submit Assignment: <span id="submitAssignmentTitle"></span></h3>
+              <form id="submissionForm">
+                <input type="hidden" id="submitAssignmentId" />
+                <textarea id="submissionText" placeholder="Paste your submission link or text here..." required style="width: 100%; height: 100px; padding: 0.5rem; border-radius: 8px; border: 1px solid #dce4f1; margin-bottom: 0.5rem;"></textarea>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button type="submit" class="action-btn">Submit Now</button>
+                  <button type="button" id="cancelSubmission" class="action-btn secondary">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <ul class="item-list" id="assignmentsList"></ul>
+          
+          <div class="section-header mt-1rem"><h2>Past Submissions</h2></div>
+          <ul class="item-list" id="submissionsList"></ul>
+        </div>
+
+        <div class="section hidden" id="announcements">
+          <div class="section-header"><h2>Announcements</h2></div>
+          <div class="announcement-list" id="announcementList"></div>
+        </div>
+
+        <div class="section hidden" id="profile">
+          <div class="section-header"><h2>Profile</h2></div>
+          <div class="profile-grid">
+            <div><strong>Name:</strong> Alex Johnson</div>
+            <div><strong>Roll No:</strong> 210123456</div>
+            <div><strong>Course:</strong> B.Tech Computer Science</div>
+            <div><strong>Semester:</strong> 4</div>
+            <div><strong>Email:</strong> alex.johnson@example.com</div>
+            <div><strong>Phone:</strong> +91 98765 43210</div>
+          </div>
+          <div class="college-social">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+              <a href="https://www.instagram.com/amityuniversity" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram">
+                <img src="instagram.png" alt="Instagram" />
+              </a>
+              <a href="https://www.facebook.com/amityuniversity" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Facebook">
+                <img src="facebook.png" alt="Facebook" />
+              </a>
+              <a href="https://www.twitter.com/amityuniversity" target="_blank" rel="noopener noreferrer" class="social-link x" aria-label="Twitter">
+                <img src="twitter.png" alt="Twitter" />
+              </a>
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="social-link whatsapp" aria-label="WhatsApp">
+                <img src="whatsapp.png" alt="WhatsApp" />
+              </a>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button id="updateDataButton" class="action-btn">Simulate Update</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="chatPanel" class="chat-panel hidden">
+      <div class="chat-header">
+        <span>Campus Chat</span>
+        <button id="chatToggle">✕</button>
+      </div>
+      <div id="chatMessages" class="chat-messages"></div>
+      <form id="chatForm" class="chat-form">
+        <input id="chatInput" type="text" placeholder="Type your message..." required />
+        <button type="submit" class="action-btn">➤</button>
+      </form>
+    </div>
+
+    <button id="chatOpenButton" class="chat-open-btn">💬</button>
+  </div>
+
+  <script src="script.js"></script>
+  <!-- server.js is the backend, not for the frontend -->
+</body>
+</html>
